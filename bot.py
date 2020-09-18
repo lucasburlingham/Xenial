@@ -9,7 +9,7 @@ client = commands.Bot(command_prefix = 'a!')
 @client.event
 async def on_ready():
     await client.change_presence(status=discord.Status.online,
-    activity=discord.Game(f"Type a!help to get the list of commands"))
+    activity=discord.Game(f"Type a!help to get the list of commands | Playing on {len(client.guilds)} guilds"))
     print('Xenial Bot is online!')
     
 @client.command()
