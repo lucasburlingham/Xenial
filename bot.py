@@ -4,12 +4,12 @@ from discord.ext import commands
 from time import sleep
 from discord.ext.commands import has_permissions
 
-client = commands.Bot(command_prefix = '>!')
+client = commands.Bot(command_prefix = 'a!')
 
 @client.event
 async def on_ready():
     await client.change_presence(status=discord.Status.online,
-    activity=discord.Game(f"Type >!help to get the list of commands"))
+    activity=discord.Game(f"Type a!help to get the list of commands"))
     print('Xenial Bot is online!')
     
 @client.command()
