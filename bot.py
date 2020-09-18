@@ -13,12 +13,12 @@ vowels = ["a","e","i","o","u","y"]
 consonants = ["b","c","d","f","g","h","j","k","l","m", \
                  "n","p","q","r","s","t","v","w","x","z"]
 
-client = commands.Bot(command_prefix = '>?')
+client = commands.Bot(command_prefix = '>!')
 
 @client.event
 async def on_ready():
     await client.change_presence(status=discord.Status.online,
-    activity=discord.Game(f"Type >?help to get the list of commands"))
+    activity=discord.Game(f"Type >!help to get the list of commands"))
     print('Xenial Bot is online!')
     
 @client.command()
