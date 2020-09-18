@@ -13,9 +13,9 @@ class Moderation(commands.Cog):
 
     @commands.command()
     @has_permissions(manage_messages=True)
-    async def rm(self,ctx, amount : int):
+    async def clear(self,ctx, amount : int):
         await ctx.channel.purge(limit=amount+1)
-        sent = await ctx.send(F":white_check_mark: | **{amount}** messages have been removed.")
+        sent = await ctx.send(F":white_check_mark: | **{amount}** messages have been cleared.")
         sleep(1)
         await sent.delete()
 
