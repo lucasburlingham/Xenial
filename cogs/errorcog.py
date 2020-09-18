@@ -15,7 +15,7 @@ class Error(commands.Cog):
     async def on_command_error(self,ctx: commands.Context,error):
 
         if isinstance(error, commands.CommandNotFound):
-            embed = discord.Embed(description=":x: │ The command you typed does not exist...... maybe run the command **./help**, which will give you a bunch of commands.",colour=discord.Colour.purple())
+            embed = discord.Embed(description=":x: │ The command you typed does not exist...... maybe run the command **>!help**, which will give you a bunch of commands.",colour=discord.Colour.purple())
             return await ctx.send(embed=embed)
         if isinstance(error, commands.MissingPermissions):
             embed = discord.Embed(description=f":x: │ Sorry, {ctx.message.author.mention}, but you do not have the required permissions.",colour=discord.Colour.purple())
