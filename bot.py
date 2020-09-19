@@ -10,8 +10,6 @@ hello = ["Hello!", "Hallo!", "Bonjour!", "Ciao!", "¡Hola!",
              "Hej!", "Ahoj!", "Aloha!", "Привет!", "Χαίρετε!",
              "你好!", "こんにちは!", "여보세요!", "!مرحبا", "हैलो!"]
 
-predict = ["
-
 vowels = ["a","e","i","o","u","y"]
 
 consonants = ["b","c","d","f","g","h","j","k","l","m", \
@@ -40,10 +38,6 @@ async def ping(ctx):
 @client.command()
 async def hello(ctx):
     await ctx.send(random.choice(hello))
-               
-@client.command()
-async def predict(ctx):
-    await ctx.send(random.choice(predict))
               
 @client.command()
 async def code(ctx):
