@@ -18,7 +18,7 @@ consonants = ["b","c","d","f","g","h","j","k","l","m", \
 @client.event
 async def on_ready():
     await client.change_presence(status=discord.Status.online,
-    activity=discord.Game(f"Type \'a!help\' to get the list of commands | Playing on {len(client.guilds)} guilds"))
+    activity=discord.Game(f"type \'a!help\' to get list of commands | Playing on {len(client.guilds)} guilds"))
     print('Xenial Bot is online!')
            
 @client.command()
