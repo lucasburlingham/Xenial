@@ -1,5 +1,6 @@
 import os
 import discord
+import random
 from discord.ext import commands
 from time import sleep
 from discord.ext.commands import has_permissions
