@@ -9,12 +9,62 @@ client = commands.Bot(command_prefix = 'a!')
 
 hello = ["Hello!", "Hallo!", "Bonjour!", "Ciao!", "¡Hola!",
              "Hej!", "Ahoj!", "Aloha!", "Привет!", "Χαίρετε!",
-             "你好!", "こんにちは!", "여보세요!", "!مرحبا", "हैलो!"]
+             "你好!", "こんにちは!", "여보세요!", "!مرحبا", "हैलो!", "Salut!"]
 
 vowels = ["a","e","i","o","u","y"]
 
 consonants = ["b","c","d","f","g","h","j","k","l","m", \
                  "n","p","q","r","s","t","v","w","x","z"]
+
+@client.command()
+async def docs(ctx,*,arg):
+    distros = {
+    "ubuntu": "https://docs.ubuntu.com/",
+    "arch": "https://wiki.archlinux.org/",
+    "gentoo": "https://wiki.gentoo.org/wiki/Main_Page",
+    "fedora": "https://docs.fedoraproject.org/en-US/docs/",
+    "debian": "https://www.debian.org/doc/",
+    "manjaro": "https://wiki.manjaro.org",
+    "opensuse": "https://doc.opensuse.org/",
+    "kali": "https://www.kali.org/docs/",
+    "zorin": "https://zorinos.com/",
+    "mint": "https://linuxmint.com/documentation.php",
+    "venom": "https://osdn.net/projects/venomlinux/wiki/FrontPage",
+    "elementary": "https://elementary.io/docs",
+    "clear": "https://docs.clearos.com/en"
+    }
+    distro = distros[arg]
+    if arg in distros:
+        await ctx.send(f"Here are the officials docs for {arg}: {distro}")
+
+        # error handling for docs
+@docs.error
+async def docs_error(ctx,error) :
+    if isinstance(error, commands.MissingRequiredArgument):
+            author = ctx.message.author
+            embed = discord.Embed(
+            colour = discord.Colour.orange()
+            )
+            embed.set_author(name='Available distro docs:')
+            embed.add_field(name='Ubuntu',value = "ubuntu",inline=False)
+            embed.add_field(name='Debian',value = "debian", inline=False)
+            embed.add_field(name='Arch',value = "arch",inline=False)
+            embed.add_field(name='Fedora',value = "fedora",inline=False)
+            embed.add_field(name='Gentoo',value = "gentoo",inline=False)
+            embed.add_field(name='Zorin',value = "zorin",inline=False)
+            embed.add_field(name="Manjaro",value="manjaro",inline=False)
+            embed.add_field(name="openSUSE",value="opensuse",inline=False)
+            embed.add_field(name="Kali",value="kali",inline=False)
+            embed.add_field(name="Mint",value="mint",inline=False)
+            embed.add_field(name="Venom",value="venom",inline=False)
+            embed.add_field(name="ElementaryOS",value="elementary",inline=False)
+            embed.add_field(name="ClearOS",value="clear",inline=False)
+            await ctx.send(embed=embed)
+
+ignore_command_errors = [ #ignore these commands when there's an error
+    ("help", commands.MissingRequiredArgument),
+    ("docs", commands.MissingRequiredArgument)
+    ]
 
 @client.event
 async def on_ready():
