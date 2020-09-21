@@ -103,6 +103,12 @@ async def about(ctx):
     await ctx.send(f'Xenial is a Discord bot by tuxed, written in Python3. Licensed under MIT, meaning that it\'s open-source and you are free to distribute your own modifications of the bot.')
 
 @client.command()
+async def compgen(ctx,*,arg):
+    if arg == "-c":
+        await ctx.send("https://fossbytes.com/a-z-list-linux-command-line-reference/")
+        
+        
+@client.command()
 async def unload(ctx, extension):
     client.unload_extension(f'cogs.{extension}')
 
